@@ -97,12 +97,30 @@
       button:hover {
         background-color: #0b7dda;
       }
+
+      #description {
+        position: relative;
+        z-index: 10;
+        padding: 4px;
+      }
+      #description p {
+        font-family: monospace;
+        color: white;
+      }
     </style>
   </head>
   <body>
     <button id="upButton" onclick="movePlatformUp()" class="button">Move Up</button>
     <button id="downButton" onclick="movePlatformDown()" class="button">Move Down</button>
     <button id="resetButton" onclick="restPlatformHeight()" class="button resetButton">Reset</button>
+    <div id="description">
+      <p>
+        Use the buttons above to change the height of the platform. The player avatars are spawned on this platform.
+        Each client can independently change the height of this platform without that change being synced to other
+        clients, since the platform entity is not marked as networked, and the avatars have "allowNonNetworkedParent"
+        set to true.
+      </p>
+    </div>
 
     <a-scene
       networked-scene="

@@ -132,10 +132,10 @@ class NetworkEntities {
   }
 
   addEntityToPage(entity, parentId) {
-    var nonNetworkedParent = document.querySelector(`#${parentId}`)
+    var nonNetworkedParent;
     if (this.hasEntity(parentId)) {
       this.addEntityToParent(entity, parentId);
-    } else if (nonNetworkedParent) {
+    } else if ((nonNetworkedParent = document.querySelector(`#${parentId}`))) {
       nonNetworkedParent.appendChild(entity);
     } else {
       this.addEntityToSceneRoot(entity);
